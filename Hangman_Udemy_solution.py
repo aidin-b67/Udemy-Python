@@ -15,7 +15,11 @@ for _ in chosen_word:
     display.append("_")
 print(display)
 #TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-guess = input("Guess a letter: ").lower()
+
+end_of_game = False
+while  not end_of_game:
+    guess = input("Guess a letter: ").lower()
+ 
 
 #TODO-3 - Check if the letter the user guessed (guess) is one of the leters in the chosen_word.
 # for letter in chosen_word:
@@ -25,11 +29,14 @@ guess = input("Guess a letter: ").lower()
 #         print("Wrong")
 # for step 2 we change above to the following to find position of the letter
 
-for position in range(word_length):
-    letter = chosen_word[position]
-    if letter == guess:
-        display[position] = letter
-    else:
-        display[position] = "_"
-print(display)
+    for position in range(word_length):
+        letter = chosen_word[position]
+        if letter == guess:
+            display[position] = letter
+        
+    
+    print(display)
 
+    if "_" not in display:
+        end_of_game = True
+        print("You won")
